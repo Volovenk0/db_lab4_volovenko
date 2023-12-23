@@ -1,0 +1,32 @@
+INSERT INTO author (gender, author_name) VALUES ('Male', 'Charles Dickens');
+INSERT INTO author (gender, author_name) VALUES ('Male', 'Antoine de Saint-Exupéry');
+INSERT INTO author (gender, author_name) VALUES ('Female', 'J. K. Rowling');
+INSERT INTO author (gender, author_name) VALUES ('Female', 'Agatha Christie');
+INSERT INTO author (gender, author_name) VALUES ('Male', 'Cao Xueqin');
+INSERT INTO author (gender, author_name) VALUES ('Male', 'J. R. R. Tolkien');
+INSERT INTO author (gender, author_name) VALUES ('Male', 'C. S. Lewis');
+INSERT INTO author (gender, author_name) VALUES ('Male', 'H. Rider Haggard');
+INSERT INTO author (gender, author_name) VALUES ('Male', 'Ved Prakash Sharma');
+INSERT INTO author (gender, author_name) VALUES ('Male', 'Dan Brown');
+
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (1, 200);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (2, 200);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (3, 120);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (4, 100);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (5, 100);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (6, 100);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (7, 85);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (8, 83);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (9, 80);
+INSERT INTO sales (num_sale_id, approximate_sales_in_millions) VALUES (10, 80);
+
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('A Tale of Two Cities', 'English', 'Historical fiction', 1859, 'Charles Dickens', 1);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('The Little Prince', 'French', 'Novella', 1943, 'Antoine de Saint-Exupéry', 2);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('Harry Potter and the Philosopher^s Stone', 'English', 'Fantasy', 1997, 'J. K. Rowling', 3);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('And Then There Were None', 'English', 'Mystery', 1939, 'Agatha Christie', 4);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('Dream of the Red Chamber', 'Chinese', 'Family saga', 1791, 'Cao Xueqin', 5);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('The Hobbit', 'English', 'Fantasy', 1937, 'J. R. R. Tolkien', 6);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('The Lion, the Witch and the Wardrobe', 'English', 'Children^s fiction', 1950, 'C. S. Lewis', 7);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('She: A History of Adventure', 'English', 'Adventure', 1887, 'H. Rider Haggard', 8);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('Vardi Wala Gunda', 'Hindi', 'Detective', 1992, 'Ved Prakash Sharma', 9);
+INSERT INTO book (book_name, original_language, genre, year_of_first_publishing, author_name, num_sale_id) VALUES ('The Da Vinci Code', 'English', 'Mystery thriller', 2003, 'Dan Brown', 10);
