@@ -31,12 +31,12 @@ limit 5;
 '''
 
 query_3 = '''
-select genre.genre_name 
+select book.book_name, genre.genre_name, book.price, book.rating 
 	from book join book_genre
 		on book.book_id = book_genre.book_id
 			join genre
 				on book_genre.genre_id = genre.genre_id
-where book.price < 10 and book.rating > 4.5;
+where book.rating > 4.5;
 '''
 
 def execute_query(cursor, query):
