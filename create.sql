@@ -1,26 +1,40 @@
-CREATE TABLE Author
-(
-  gender VARCHAR(6) NOT NULL,
-  author_name VARCHAR(100) NOT NULL,
-  PRIMARY KEY (author_name)
-);
-
-CREATE TABLE Sales
-(
-  num_sale_id INT NOT NULL,
-  approximate_sales_in_millions INT NOT NULL,
-  PRIMARY KEY (num_sale_id)
-);
-
 CREATE TABLE Book
 (
-  book_name VARCHAR(100) NOT NULL,
-  original_language VARCHAR(20) NOT NULL,
-  genre VARCHAR(100) NOT NULL,
-  year_of_fist_publishing INT NOT NULL,
+  book_id INT NOT NULL,
+  book_name VARCHAR(200) NOT NULL,
+  price INT NOT NULL,
+  rating FLOAT NOT NULL,
+  PRIMARY KEY (book_id)
+);
+
+CREATE TABLE Author
+(
+  author_id INT NOT NULL,
   author_name VARCHAR(100) NOT NULL,
-  num_sale_id INT NOT NULL,
-  PRIMARY KEY (book_name),
-  FOREIGN KEY (author_name) REFERENCES Author(author_name),
-  FOREIGN KEY (num_sale_id) REFERENCES Sales(num_sale_id)
+  PRIMARY KEY (author_id)
+);
+
+CREATE TABLE Genre
+(
+  genre_id INT NOT NULL,
+  genre_name VARCHAR(50) NOT NULL,
+  PRIMARY KEY (genre_id)
+);
+
+CREATE TABLE book_author
+(
+  author_id INT NOT NULL,
+  book_id INT NOT NULL,
+  PRIMARY KEY (author_id, book_id),
+  FOREIGN KEY (author_id) REFERENCES Author(author_id),
+  FOREIGN KEY (book_id) REFERENCES Book(book_id)
+);
+
+CREATE TABLE book_genre
+(
+  book_id INT NOT NULL,
+  genre_id INT NOT NULL,
+  PRIMARY KEY (book_id, genre_id),
+  FOREIGN KEY (book_id) REFERENCES Book(book_id),
+  FOREIGN KEY (genre_id) REFERENCES Genre(genre_id)
 );
