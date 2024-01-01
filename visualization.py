@@ -10,32 +10,35 @@ db_params = {
 }
 
 query_1 = '''
-SELECT max(book.rating) AS max_rating, genre.genre_name 
-FROM book 
-JOIN book_genre ON book.book_id = book_genre.book_id
-JOIN genre ON book_genre.genre_id = genre.genre_id
-GROUP BY genre.genre_name
-ORDER BY max_rating DESC;
+select max(book.rating) as max_rating, genre.genre_name 
+	from book join book_genre
+		on book.book_id = book_genre.book_id
+			join genre
+				on book_genre.genre_id = genre.genre_id
+group by genre.genre_name
+order by max_rating desc;
 '''
 
 query_2 = '''
-SELECT author.author_name, max(book.rating) AS max_rating
-FROM author 
-JOIN book_author ON author.author_id = book_author.author_id
-JOIN book ON book_author.book_id = book.book_id
-GROUP BY author.author_name
-ORDER BY max_rating DESC
-LIMIT 5;
+select author.author_name, max(book.rating) as max_rating
+	from author join book_author
+		on author.author_id = book_author.author_id
+			join book
+				on book_author.book_id = book.book_id
+group by author.author_name
+order by max_rating desc
+limit 5;
 '''
 
 query_3 = '''
-SELECT genre.genre_name, count(book.book_id) AS book_count
-FROM book 
-JOIN book_genre ON book.book_id = book_genre.book_id
-JOIN genre ON book_genre.genre_id = genre.genre_id
-WHERE book.price < 12
-GROUP BY genre.genre_name
-ORDER BY book_count DESC;
+select genre.genre_name, count(book.book_id) as book_count
+	from book join book_genre
+		on book.book_id = book_genre.book_id
+			join genre
+				on book_genre.genre_id = genre.genre_id
+where book.price < 12
+group by genre.genre_name
+order by book_count desc;
 '''
 
 def execute_query(cursor, query):
