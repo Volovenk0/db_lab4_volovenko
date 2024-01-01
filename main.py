@@ -10,30 +10,33 @@ db_params = {
 }
 
 query_1 = '''
-select genre, sum(sales.approximate_sales_in_millions) as total_sales_in_millions 
-	from book join sales 
-		on book.num_sale_id = sales.num_sale_id
-    group by book.genre
-    order by total_sales_in_millions desc;
+select max(book.rating) as max_rating, genre.genre_name 
+	from book join book_genre
+		on book.book_id = book_genre.book_id
+			join genre
+				on book_genre.genre_id = genre.genre_id
+group by genre.genre_name
+order by max_rating desc;
 '''
 
 query_2 = '''
-select author.author_name, sum(sales.approximate_sales_in_millions) as total_sales_in_millions 
-	from author join book 
-		on author.author_name = book.author_name
-			join sales 
-				on book.num_sale_id = sales.num_sale_id
+select author.author_name, max(book.rating) as max_rating
+	from author join book_author
+		on author.author_id = book_author.author_id
+			join book
+				on book_author.book_id = book.book_id
 group by author.author_name
-order by total_sales_in_millions desc
+order by max_rating desc
 limit 5;
 '''
 
 query_3 = '''
-select book.original_language, sum(sales.approximate_sales_in_millions) as total_sales_in_millions
-	from book join sales
-		on book.num_sale_id = sales.num_sale_id
-group by book.original_language
-order by total_sales_in_millions desc; 
+select genre.genre_name 
+	from book join book_genre
+		on book.book_id = book_genre.book_id
+			join genre
+				on book_genre.genre_id = genre.genre_id
+where book.price < 10 and book.rating > 4.5;
 '''
 
 def execute_query(cursor, query):
