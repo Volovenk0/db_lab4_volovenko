@@ -17,10 +17,12 @@ group by author.author_name
 order by max_rating desc
 limit 5;
 
--- 3.3 Вивести жанри, назву та ціну книг з рейтингом більше 4.5
-select book.book_name, genre.genre_name, book.price, book.rating 
+-- 3.3 Вивести кількість книг з ціною менше 12$ за жанром
+select genre.genre_name, count(book.book_id) as book_count
 	from book join book_genre
 		on book.book_id = book_genre.book_id
 			join genre
 				on book_genre.genre_id = genre.genre_id
-where book.rating > 4.5;
+where book.price < 12
+group by genre.genre_name
+order by book_count desc;
